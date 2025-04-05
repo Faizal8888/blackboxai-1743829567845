@@ -1,0 +1,154 @@
+/* 3D Animation Styles */
+.cube {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 10s infinite linear;
+}
+
+.cube-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+@keyframes rotate {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Parallax Scrolling Effects */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Hover Effects */
+.hover-grow {
+    transition: transform 0.3s ease;
+}
+.hover-grow:hover {
+    transform: scale(1.05);
+}
+
+.hover-rotate {
+    transition: transform 0.5s ease;
+}
+.hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+/* Text Animations */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+.text-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        left: 100%;
+    }
+}
+
+/* Glassmorphism Enhancements */
+.glass-card-hover {
+    transition: all 0.3s ease;
+}
+.glass-card-hover:hover {
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+    
+    .cube {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Dark Mode Transition Smoothing */
+body, .glass-card {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Gold Accent Elements */
+.gold-border {
+    border: 2px solid #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.gold-text-glow {
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+/* Project Gallery Styles */
+.project-card {
+    perspective: 1000px;
+}
+.project-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.project-card:hover .project-inner {
+    transform: rotateY(180deg);
+}
+.project-front, .project-back {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.project-back {
+    transform: rotateY(180deg);
+}
+
+/* Analytics Dashboard Styles */
+.analytics-card {
+    border-left: 4px solid #00FFFF;
+}
+.analytics-card:nth-child(2) {
+    border-left-color: #FFD700;
+}
+.analytics-card:nth-child(3) {
+    border-left-color: #FF6B6B;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
