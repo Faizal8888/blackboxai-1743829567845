@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALFAZAL | Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-slate-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="tech-font text-2xl gold-accent">ALFAZAL</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-cyan-400 transition">Home</a>
+                <a href="#" class="hover:text-cyan-400 transition">About</a>
+                <a href="projects.html" class="text-cyan-400">Projects</a>
+                <a href="#" class="hover:text-cyan-400 transition">Contact</a>
+                <button id="theme-toggle" class="px-4 py-2 rounded-full bg-slate-800 text-white dark:bg-slate-200 dark:text-black">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Gallery -->
+    <main class="pt-24 pb-16">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-12 text-center tech-font gold-text-glow">
+                OUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">PROJECTS</span>
+            </h1>
+            
+            <!-- Interactive Filter -->
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <button class="filter-btn active px-6 py-2 rounded-full bg-cyan-600 text-white" data-filter="all">All</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-slate-700 text-white hover:bg-cyan-600 transition" data-filter="web">Web</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-slate-700 text-white hover:bg-cyan-600 transition" data-filter="mobile">Mobile</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-slate-700 text-white hover:bg-cyan-600 transition" data-filter="ai">AI</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-slate-700 text-white hover:bg-cyan-600 transition" data-filter="iot">IoT</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="web ai">
+                    <div class="project-inner h-80">
+                        <div class="project-front glass-card rounded-xl p-6 flex flex-col hover-glow transition-all duration-500">
+                            <div class="flex-1 flex items-center justify-center mb-4">
+                                <i class="fas fa-globe text-6xl text-cyan-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Futuristic Web Portal</h3>
+                            <p class="text-slate-300 mb-4">3D interactive interface with AI-powered navigation</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-cyan-600/20 text-cyan-400 rounded-full text-sm">WebGL</span>
+                                <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">AI</span>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card rounded-xl p-6 flex flex-col justify-center items-center text-center">
+                            <h3 class="text-xl font-bold mb-4">Futuristic Web Portal</h3>
+                            <p class="text-slate-300 mb-6">Revolutionary navigation system using machine learning to predict user intent</p>
+                            <button class="view-details px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-bold">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-inner h-80">
+                        <div class="project-front glass-card rounded-xl p-6 flex flex-col hover-glow transition-all duration-500">
+                            <div class="flex-1 flex items-center justify-center mb-4">
+                                <i class="fas fa-mobile-alt text-6xl text-cyan-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">AR Shopping App</h3>
+                            <p class="text-slate-300 mb-4">Augmented reality product visualization</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-cyan-600/20 text-cyan-400 rounded-full text-sm">ARKit</span>
+                                <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">Swift</span>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card rounded-xl p-6 flex flex-col justify-center items-center text-center">
+                            <h3 class="text-xl font-bold mb-4">AR Shopping App</h3>
+                            <p class="text-slate-300 mb-6">Try products in your space before buying with centimeter-accurate AR placement</p>
+                            <button class="view-details px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-bold">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-inner h-80">
+                        <div class="project-front glass-card rounded-xl p-6 flex flex-col hover-glow transition-all duration-500">
+                            <div class="flex-1 flex items-center justify-center mb-4">
+                                <i class="fas fa-robot text-6xl text-cyan-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Predictive Analytics AI</h3>
+                            <p class="text-slate-300 mb-4">Real-time business intelligence platform</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">TensorFlow</span>
+                                <span class="px-3 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-sm">Python</span>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card rounded-xl p-6 flex flex-col justify-center items-center text-center">
+                            <h3 class="text-xl font-bold mb-4">Predictive Analytics AI</h3>
+                            <p class="text-slate-300 mb-6">95% accurate forecasting model for market trends and consumer behavior</p>
+                            <button class="view-details px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-bold">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="iot">
+                    <div class="project-inner h-80">
+                        <div class="project-front glass-card rounded-xl p-6 flex flex-col hover-glow transition-all duration-500">
+                            <div class="flex-1 flex items-center justify-center mb-4">
+                                <i class="fas fa-network-wired text-6xl text-cyan-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Smart City Network</h3>
+                            <p class="text-slate-300 mb-4">IoT infrastructure for urban environments</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-red-600/20 text-red-400 rounded-full text-sm">IoT</span>
+                                <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm">5G</span>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card rounded-xl p-6 flex flex-col justify-center items-center text-center">
+                            <h3 class="text-xl font-bold mb-4">Smart City Network</h3>
+                            <p class="text-slate-300 mb-6">Connected infrastructure reducing energy consumption by 40% in pilot cities</p>
+                            <button class="view-details px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-bold">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-inner h-80">
+                        <div class="project-front glass-card rounded-xl p-6 flex flex-col hover-glow transition-all duration-500">
+                            <div class="flex-1 flex items-center justify-center mb-4">
+                                <i class="fas fa-vr-cardboard text-6xl text-cyan-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">VR Collaboration Suite</h3>
+                            <p class="text-slate-300 mb-4">Immersive virtual meeting spaces</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-cyan-600/20 text-cyan-400 rounded-full text-sm">WebXR</span>
+                                <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">Three.js</span>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card rounded-xl p-6 flex flex-col justify-center items-center text-center">
+                            <h3 class="text-xl font-bold mb-4">VR Collaboration Suite</h3>
+                            <p class="text-slate-300 mb-6">Browser-based VR meetings with spatial audio and realistic avatars</p>
+                            <button class="view-details px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-bold">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="ai iot">
+                    <div class="project-inner h-80">
+                        <div class="project-front glass-card rounded-xl p-6 flex flex-col hover-glow transition-all duration-500">
+                            <div class="flex-1 flex items-center justify-center mb-4">
+                                <i class="fas fa-brain text-6xl text-cyan-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Edge AI Processors</h3>
+                            <p class="text-slate-300 mb-4">On-device machine learning</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">AI</span>
+                                <span class="px-3 py-1 bg-red-600/20 text-red-400 rounded-full text-sm">IoT</span>
+                                <span class="px-3 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-sm">Rust</span>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card rounded-xl p-6 flex flex-col justify-center items-center text-center">
+                            <h3 class="text-xl font-bold mb-4">Edge AI Processors</h3>
+                            <p class="text-slate-300 mb-6">10x faster inference with 90% less power consumption than traditional chips</p>
+                            <button class="view-details px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-bold">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/80 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="tech-font text-2xl gold-accent mb-4 md:mb-0">ALFAZAL</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-slate-800 text-center text-slate-500">
+                <p>© 2025 ALFAZAL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot Widget -->
+    <div id="chatbot-widget" class="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-lg cursor-pointer hover:scale-110 transition-transform">
+        <i class="fas fa-robot text-2xl"></i>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Project filtering functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-cyan-600'));
+                    button.classList.add('active', 'bg-cyan-600');
+                    
+                    const filter = button.dataset.filter;
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category.includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Add click effect to project cards
+            projectCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (!e.target.classList.contains('view-details')) {
+                        const inner = card.querySelector('.project-inner');
+                        inner.style.transform = inner.style.transform === 'rotateY(180deg)' ? '' : 'rotateY(180deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
