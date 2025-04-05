@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALFAZAL | Analytics Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="min-h-screen bg-slate-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="tech-font text-2xl gold-accent">ALFAZAL</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-cyan-400 transition">Home</a>
+                <a href="#" class="hover:text-cyan-400 transition">About</a>
+                <a href="projects.html" class="hover:text-cyan-400 transition">Projects</a>
+                <a href="analytics.html" class="text-cyan-400">Analytics</a>
+                <button id="theme-toggle" class="px-4 py-2 rounded-full bg-slate-800 text-white dark:bg-slate-200 dark:text-black">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Analytics Dashboard -->
+    <main class="pt-24 pb-16">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-12 text-center tech-font gold-text-glow">
+                LIVE <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">ANALYTICS</span>
+            </h1>
+            
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="analytics-card glass-card rounded-xl p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg text-slate-400">Visitors Now</h3>
+                            <p class="text-3xl font-bold" id="visitors-now">187</p>
+                        </div>
+                        <div class="text-4xl text-cyan-400">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex items-center text-sm text-green-400">
+                            <i class="fas fa-arrow-up mr-1"></i>
+                            <span>12.5% from yesterday</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analytics-card glass-card rounded-xl p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg text-slate-400">Avg. Session</h3>
+                            <p class="text-3xl font-bold">4m 32s</p>
+                        </div>
+                        <div class="text-4xl text-amber-400">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex items-center text-sm text-green-400">
+                            <i class="fas fa-arrow-up mr-1"></i>
+                            <span>8.3% from last week</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analytics-card glass-card rounded-xl p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg text-slate-400">Bounce Rate</h3>
+                            <p class="text-3xl font-bold">32%</p>
+                        </div>
+                        <div class="text-4xl text-red-400">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex items-center text-sm text-red-400">
+                            <i class="fas fa-arrow-down mr-1"></i>
+                            <span>5.1% from last month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-6">Monthly Visitors</h3>
+                    <canvas id="visitors-chart" height="300"></canvas>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-6">Engagement Time</h3>
+                    <canvas id="engagement-chart" height="300"></canvas>
+                </div>
+            </div>
+
+            <!-- Real-Time Activity -->
+            <div class="glass-card rounded-xl p-6 mb-12">
+                <h3 class="text-xl font-bold mb-6">Live Activity Stream</h3>
+                <div class="space-y-4 max-h-96 overflow-y-auto pr-2" id="activity-stream">
+                    <!-- Activity items will be added dynamically -->
+                </div>
+            </div>
+
+            <!-- Top Pages -->
+            <div class="glass-card rounded-xl p-6">
+                <h3 class="text-xl font-bold mb-6">Top Performing Pages</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="text-left border-b border-slate-700">
+                                <th class="pb-3">Page</th>
+                                <th class="pb-3">Views</th>
+                                <th class="pb-3">Avg. Time</th>
+                                <th class="pb-3">Conversion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-800 hover:bg-slate-800/50">
+                                <td class="py-4">/projects</td>
+                                <td>4,892</td>
+                                <td>5m 12s</td>
+                                <td class="text-green-400">12.8%</td>
+                            </tr>
+                            <tr class="border-b border-slate-800 hover:bg-slate-800/50">
+                                <td class="py-4">/home</td>
+                                <td>4,521</td>
+                                <td>3m 45s</td>
+                                <td class="text-green-400">9.3%</td>
+                            </tr>
+                            <tr class="border-b border-slate-800 hover:bg-slate-800/50">
+                                <td class="py-4">/analytics</td>
+                                <td>3,987</td>
+                                <td>7m 23s</td>
+                                <td class="text-green-400">15.2%</td>
+                            </tr>
+                            <tr class="border-b border-slate-800 hover:bg-slate-800/50">
+                                <td class="py-4">/contact</td>
+                                <td>2,456</td>
+                                <td>2m 12s</td>
+                                <td class="text-green-400">6.7%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/50">
+                                <td class="py-4">/about</td>
+                                <td>1,892</td>
+                                <td>1m 56s</td>
+                                <td class="text-green-400">4.2%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/80 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="tech-font text-2xl gold-accent mb-4 md:mb-0">ALFAZAL</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-slate-800 text-center text-slate-500">
+                <p>© 2025 ALFAZAL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot Widget -->
+    <div id="chatbot-widget" class="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-lg cursor-pointer hover:scale-110 transition-transform">
+        <i class="fas fa-robot text-2xl"></i>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Simulate real-time activity stream
+        const activities = [
+            "New visitor from United States viewed /projects",
+            "User completed contact form submission",
+            "3D demo interacted with for 2+ minutes",
+            "AI chatbot engaged for support query",
+            "Return visitor from Germany spent 8m on site",
+            "Project case study downloaded",
+            "New newsletter subscription",
+            "User shared project on LinkedIn"
+        ];
+
+        const activityStream = document.getElementById('activity-stream');
+        if (activityStream) {
+            // Initial activities
+            for (let i = 0; i < 5; i++) {
+                addActivity();
+            }
+
+            // Add new activity every 3-8 seconds
+            setInterval(addActivity, Math.random() * 5000 + 3000);
+        }
+
+        function addActivity() {
+            const activity = activities[Math.floor(Math.random() * activities.length)];
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            const activityItem = document.createElement('div');
+            activityItem.className = 'flex items-start';
+            activityItem.innerHTML = `
+                <div class="flex-shrink-0 mt-1 mr-3 text-cyan-400">
+                    <i class="fas fa-circle text-xs"></i>
+                </div>
+                <div>
+                    <p class="text-sm">${activity}</p>
+                    <p class="text-xs text-slate-500 mt-1">${timeString}</p>
+                </div>
+            `;
+            
+            activityStream.insertBefore(activityItem, activityStream.firstChild);
+            
+            // Limit to 15 items
+            if (activityStream.children.length > 15) {
+                activityStream.removeChild(activityStream.lastChild);
+            }
+        }
+    </script>
+</body>
+</html>
